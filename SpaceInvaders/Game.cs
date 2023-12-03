@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SpaceInvaders
 {
-    public partial class Level1 : UserControl
+    public partial class Game : UserControl
     {
-        public Level1()
+        public Game()
         {
             InitializeComponent();
         }

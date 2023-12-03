@@ -1,6 +1,6 @@
 ﻿namespace SpaceInvaders
 {
-    partial class Level1
+    partial class Game
     {
         /// <summary> 
         /// Required designer variable.
