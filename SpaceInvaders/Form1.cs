@@ -5,9 +5,11 @@ namespace SpaceInvaders
 {
     public partial class Form1 : Form
     {
+        private PictureBox playerShip;
         private MenuControl menuControl;
         private StartGameControl startGameControl;
         private CreditsControl creditsControl;
+        private int step = 10;
 
         public Form1()
         {
@@ -16,6 +18,7 @@ namespace SpaceInvaders
 
             menuControl.StartBtnClick += MenuControl_StartGameBtnClick;
             menuControl.CreditsBtnClick += MenuControl_CreditsBtnClick;
+            this.KeyDown += new KeyEventHandler(MainForm_KeyDown);
         }
 
         //obsługa przycisków
@@ -64,6 +67,26 @@ namespace SpaceInvaders
             Controls.Add(creditsControl);
 
             creditsControl.BackBtnClick += CreditsControl_BackBtnClick;
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Przesuń obrazek w zależności od kierunku strzałki
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    playerShip.Top -= step;
+                    break;
+                case Keys.Down:
+                    playerShip.Top += step;
+                    break;
+                case Keys.Left:
+                    playerShip.Left -= step;
+                    break;
+                case Keys.Right:
+                    playerShip.Left += step;
+                    break;
+            }
         }
     }
 }
