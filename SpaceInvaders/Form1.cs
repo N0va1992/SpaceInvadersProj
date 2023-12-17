@@ -6,6 +6,7 @@ namespace SpaceInvaders
     public partial class Form1 : Form
     {
         private MenuControl menuControl;
+        private StartGameControl startGameControl;
         private CreditsControl creditsControl;
 
         public Form1()
@@ -13,6 +14,7 @@ namespace SpaceInvaders
             InitializeComponent();
             ShowMainMenu();
 
+            menuControl.StartBtnClick += MenuControl_StartGameBtnClick;
             menuControl.CreditsBtnClick += MenuControl_CreditsBtnClick;
         }
 
@@ -20,6 +22,11 @@ namespace SpaceInvaders
         private void MenuControl_CreditsBtnClick(object sender, EventArgs e)
         {
             ShowCreditsControl();
+        }
+
+        private void MenuControl_StartGameBtnClick(object sender, EventArgs e)
+        {
+            ShowStartGameControl();
         }
 
         private void CreditsControl_BackBtnClick(object sender, EventArgs e)
@@ -39,13 +46,21 @@ namespace SpaceInvaders
             menuControl.CreditsBtnClick += MenuControl_CreditsBtnClick;
         }
 
+        private void ShowStartGameControl()
+        {
+            startGameControl = new StartGameControl();
+            startGameControl.Dock = DockStyle.Fill;
+
+            Controls.Clear();
+            Controls.Add(startGameControl);
+        }
+
         private void ShowCreditsControl()
         {
             creditsControl = new CreditsControl();
             creditsControl.Dock = DockStyle.Fill;
 
             Controls.Clear();
-
             Controls.Add(creditsControl);
 
             creditsControl.BackBtnClick += CreditsControl_BackBtnClick;
