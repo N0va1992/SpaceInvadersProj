@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace SpaceInvaders
 {
-    public partial class Game : UserControl
+    public partial class CreditsControl : UserControl
     {
-        public Game()
+        public event EventHandler BackBtnClick;
+        public CreditsControl()
         {
             InitializeComponent();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            BackBtnClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

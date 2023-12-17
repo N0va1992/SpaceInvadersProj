@@ -12,9 +12,15 @@ namespace SpaceInvaders
 {
     public partial class MenuControl : UserControl
     {
+        public event EventHandler CreditsBtnClick;
         public MenuControl()
         {
             InitializeComponent();
+        }
+
+        private void creditsBtn_Click(object sender, EventArgs e)
+        {
+            CreditsBtnClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }

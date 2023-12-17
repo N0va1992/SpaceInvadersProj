@@ -53,6 +53,7 @@
             this.creditsBtn.TabIndex = 6;
             this.creditsBtn.Text = "Credits";
             this.creditsBtn.UseVisualStyleBackColor = true;
+            this.creditsBtn.Click += new System.EventHandler(this.creditsBtn_Click);
             // 
             // startBtn
             // 
