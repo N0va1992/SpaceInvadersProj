@@ -5,39 +5,22 @@ namespace SpaceInvaders
 {
     public partial class Form1 : Form
     {
-        private PlayerShip playerShip;
+        private MenuControl menuControl;
 
         public Form1()
         {
             InitializeComponent();
-            InitializeGame();
+            ShowMainMenu();
         }
-
-        private void InitializeGame()
+        
+        private void ShowMainMenu()
         {
-            playerShip = new PlayerShip(this); // Przekazujemy referencję do formularza
-            KeyPreview = true;
-            KeyDown += Form1_KeyDown; // Obsługa zdarzenia naciśnięcia klawisza
-        }
+            menuControl = new MenuControl();
+            menuControl.Dock = DockStyle.Fill;
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Obsługa ruchu statku gracza na podstawie naciśniętego klawisza
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    playerShip.MoveLeft();
-                    break;
-                case Keys.Right:
-                    playerShip.MoveRight();
-                    break;
-                case Keys.Up:
-                    playerShip.MoveUp();
-                    break;
-                case Keys.Down:
-                    playerShip.MoveDown();
-                    break;
-            }
+            Controls.Clear();
+
+            Controls.Add(menuControl);
         }
     }
 }
